@@ -1028,7 +1028,8 @@ class Transaction(object):
         for pkg in changeset.keys():
 
             op = changeset.get(pkg)
-            if (op and op != origchangeset.get(pkg) and
+	    origpkgop = origchangeset.get(pkg)
+            if (op and origpkgop != None and op != origpkgop and
                 pkg not in locked and pkg not in lockedstates):
 
                 try:
